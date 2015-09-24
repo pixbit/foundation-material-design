@@ -10,6 +10,20 @@
     "type": "git",
     "url": "git+https://github.com/pixbit/foundation-material-design.git"
   },
+  "devDependencies": {
+    "browser-sync": "^2.9.4",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-inject": "^2.2.0",
+    "gulp-jscs": "^2.0.0",
+    "gulp-jscs-stylish": "^1.1.2",
+    "gulp-jshint": "^1.11.2",
+    "gulp-sass": "^2.0.4",
+    "jshint-stylish": "^2.0.1",
+    "run-sequence": "^1.1.3",
+    "wiredep": "^2.2.2"
+  },
   "keywords": [
     "google",
     "material",
