@@ -1,0 +1,24 @@
+{
+  "name": "foundation-material-design",
+  "version": "1.0.0",
+  "description": "Foundation Material Design Theme",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixbit/foundation-material-design.git"
+  },
+  "keywords": [
+    "google",
+    "material",
+    "design"
+  ],
+  "author": "Pixbit Dev Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pixbit/foundation-material-design/issues"
+  },
+  "homepage": "https://github.com/pixbit/foundation-material-design#readme"
+}

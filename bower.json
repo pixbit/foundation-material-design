@@ -1,0 +1,22 @@
+{
+  "name": "foundation-material-design",
+  "version": "0.0.1",
+  "authors": [
+    "Edwin Estrada <edwin@thinkpixbit.com>"
+  ],
+  "description": "Material Design Foundation Theme",
+  "main": "['dist/foundation-md.css']",
+  "keywords": [
+    "material",
+    "design"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.thinkpixbit.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
