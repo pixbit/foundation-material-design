@@ -20,7 +20,7 @@
       'clean',
       'vet',
       'sass',
-      'concat:js', 
+      'concat:js',
       'build',
       'inject',
       'server',
@@ -37,6 +37,15 @@
           baseDir: './build'
         }
     });
+  });
+
+  gulp.task('gh', function(done) {
+    runSequence(
+      concatStyles('gh-assets'),
+      concatScripts('gh-assets'),
+      'inject:gh-pages',
+      done
+    );
   });
 
   gulp.task('monitor:html', function(){
@@ -64,19 +73,7 @@
   //////////////////////
 
   gulp.task('concat:js', function () {
-    return gulp
-      .src(require('wiredep')({
-        "overrides": {
-          "foundation": {
-            "main": [
-              "js/foundation.js",
-              "js/foundation/foundation.dropdown.js"
-            ]
-          }
-        }
-      }).js)
-      .pipe(concat('scripts.js'))
-      .pipe(gulp.dest(config.clientScripts));
+    return concatScripts(config.clientScripts);
   });
 
   gulp.task('inject', function() {
@@ -97,12 +94,49 @@
       .pipe( gulp.dest( config.client ) );
   });
 
+  gulp.task('inject:gh-pages', function() {
+    return gulp
+      .src('index.html')
+      .pipe(
+        inject(
+          gulp.src(
+            [
+              'gh-assets/**/*.js',
+              'gh-assets/**/*.css'
+            ]
+          ),
+          { relative: true }
+        )
+      )
+      .pipe( gulp.dest( './' ) );
+  });
+
+  function concatScripts(destination){
+    return gulp
+      .src(require('wiredep')({
+        "overrides": {
+          "foundation": {
+            "main": [
+              "js/foundation.js",
+              "js/foundation/foundation.dropdown.js"
+            ]
+          }
+        }
+      }).js)
+      .pipe(concat('scripts.js'))
+      .pipe(gulp.dest(destination));
+  }
+
   ///////////////
   // CSS Tasks //
   ///////////////
 
 
   gulp.task('sass', function(){
+    return concatStyles(config.client).pipe(browserSync.stream());
+  });
+
+  function concatStyles(destination) {
     return gulp
     .src( config.srcSASS )
     .pipe(
@@ -110,9 +144,8 @@
         includePaths: ['bower_components/foundation/scss']
       })
       .on('error', sass.logError))
-    .pipe( gulp.dest( config.client ) )
-    .pipe( browserSync.stream() );
-  });
+    .pipe(gulp.dest(destination));
+  }
 
   gulp.task('build', function(){
     return gulp
