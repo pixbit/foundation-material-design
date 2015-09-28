@@ -50,8 +50,26 @@
 #app-bar{
   max-width: none;
   background-color: #3F51B5;
+  color: white;
   @media #{$large-up} {
     height: 64px;
+  }
+  padding-left: 12px;
+  h6.title.with-toolbar-icon{
+    color: white;
+    float: left;
+    font-size: 24px;
+    padding-top: 16px;
+    margin-left: 20px;
+  }
+}
+.toolbar-icon-container{
+  float: left;
+  height: 48px;
+  width: 48px;
+  margin: 8px 0;
+  .material-icons{
+    margin: 12px;
   }
 }
 
