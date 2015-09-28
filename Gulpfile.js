@@ -24,6 +24,7 @@
       'build',
       'inject',
       'gh',
+      'copy:gh-css',
       'server',
       [
         // 'monitor:html',
@@ -195,6 +196,12 @@
     return gulp
       .src( config.buildComponents )
       .pipe( gulp.dest( config.client ) );
+  });
+
+  gulp.task('copy:gh-css', function() {
+    return gulp
+      .src('gh/assets/stylesheets/*.css')
+      .pipe(gulp.dest('./'));
   });
 
   //////////////////////
