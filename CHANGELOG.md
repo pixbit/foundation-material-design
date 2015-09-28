@@ -1,5 +1,9 @@
 ## Changelog
 
+###### v0.1.0 (2015-09-28) ######
+- Added desktop structure layout
+- Added app bar icon and title
+
 ---
 ###### v0.0.1 (2015-09-24) ######
 Setting up essential package files.
