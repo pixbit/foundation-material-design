@@ -5,7 +5,7 @@
     "Edwin Estrada <edwin@thinkpixbit.com>"
   ],
   "description": "Material Design Foundation Theme",
-  "main": "['dist/foundation-md.css']",
+  "main": "['gh/assets/stylesheets/foundation-material-design.css']",
   "keywords": [
     "material",
     "design"
