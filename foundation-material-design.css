@@ -6285,11 +6285,13 @@ th.hide-for-touch {
 #app-bar {
   max-width: none;
   background-color: #3F51B5;
+  color: white;
   padding-left: 12px; }
   @media only screen and (min-width: 64.0625em) {
     #app-bar {
       height: 64px; } }
   #app-bar h6.title.with-toolbar-icon {
+    color: white;
     float: left;
     font-size: 24px;
     padding-top: 16px;
@@ -6299,11 +6301,9 @@ th.hide-for-touch {
   float: left;
   height: 48px;
   width: 48px;
-  margin: 8px 0;
-  background-color: grey; }
+  margin: 8px 0; }
   .toolbar-icon-container .material-icons {
-    margin: 12px;
-    background-color: white; }
+    margin: 12px; }
 
 .nav-drawer {
   background-color: #EC008C;
