@@ -50,9 +50,35 @@
 #app-bar{
   max-width: none;
   background-color: #3F51B5;
+  color: white;
   @media #{$large-up} {
     height: 64px;
   }
+  .toolbar-icon{
+    float: left;
+    @media #{$large-up} {
+      margin: 8px 12px;
+
+      height: 48px;
+      width: 48px;
+    }
+    .material-icons{
+      padding: 12px;
+    }
+  }
+  h6{
+    float: left;
+    margin: 20px 0;
+    color: white;
+  }
+}
+
+.title{
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: .02em;
 }
 
 .nav-drawer{
