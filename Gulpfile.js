@@ -23,9 +23,11 @@
       'concat:js',
       'build',
       'inject',
+      'gh',
       'server',
       [
-        'monitor:html'
+        // 'monitor:html',
+        'monitor:styles'
       ],
       done
     );
@@ -34,16 +36,16 @@
   gulp.task('server', function() {
     browserSync.init({
         server: {
-          baseDir: './build'
+          baseDir: './'
         }
     });
   });
 
   gulp.task('gh', function(done) {
     runSequence(
-      concatStyles('gh-assets'),
-      concatScripts('gh-assets'),
-      'inject:gh-pages',
+      ['concat:gh-styles', 'concat:gh-scripts'],
+      'build:gh',
+      'inject:gh',
       done
     );
   });
@@ -65,7 +67,11 @@
   });
 
   gulp.task('clean', function(){
-    return del([ config.client ]);
+    return del([
+      config.client,
+      './gh/',
+      './index.html'
+    ]);
   });
 
   //////////////////////
@@ -94,15 +100,49 @@
       .pipe( gulp.dest( config.client ) );
   });
 
-  gulp.task('inject:gh-pages', function() {
+  gulp.task('build:gh', function () {
+    gulp.src('!' + config.index).pipe(gulp.dest('./'));
+
     return gulp
-      .src('index.html')
+      .src([
+        '!' + config.index,
+        config.srcHTML
+      ])
+      .pipe( gulp.dest('gh/') );
+  });
+
+  gulp.task('concat:gh-styles', function() {
+    return concatStyles('gh');
+  });
+
+  gulp.task('concat:gh-scripts', function() {
+    return concatScripts('gh');
+  });
+
+  gulp.task('inject:gh', function() {
+    gulp
+      .src('gh/**/*.html')
       .pipe(
         inject(
           gulp.src(
             [
-              'gh-assets/**/*.js',
-              'gh-assets/**/*.css'
+              'gh/**/*.js',
+              'gh/**/*.css'
+            ]
+          ),
+          { relative: true }
+        )
+      )
+      .pipe( gulp.dest( 'gh/' ) );
+
+    return gulp
+      .src('./index.html')
+      .pipe(
+        inject(
+          gulp.src(
+            [
+              'gh/**/*.js',
+              'gh/**/*.css'
             ]
           ),
           { relative: true }
@@ -131,9 +171,13 @@
   // CSS Tasks //
   ///////////////
 
+  gulp.task('monitor:styles', function(){
+    gulp.watch( 'src/**/*.scss', ['sass'] );
+  });
 
   gulp.task('sass', function(){
-    return concatStyles(config.client).pipe(browserSync.stream());
+    concatStyles(config.client).pipe(browserSync.stream());
+    return concatStyles('gh').pipe(browserSync.stream());
   });
 
   function concatStyles(destination) {

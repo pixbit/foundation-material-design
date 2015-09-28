@@ -46,3 +46,46 @@
 // @import 'foundation/components/type';
 // @import 'foundation/components/offcanvas';
 // @import 'foundation/components/visibility';
+
+#app-bar{
+  max-width: none;
+  background-color: #3F51B5;
+  @media #{$large-up} {
+    height: 64px;
+  }
+}
+
+.nav-drawer{
+  background-color: #EC008C;
+  float: left;
+  height: 100%;
+  &.clipped-under-app-bar{
+    height: -webkit-calc(100% - 64px);
+    height: -moz-calc(100% - 64px);
+    height: calc(100% - 64px);
+  }
+  @media #{$large-up} {
+    width: 4 * 64px;
+  }
+}
+#side-nav{
+}
+#right-nav{
+}
+
+#content-canvas{
+  background-color: #D8D8D8;
+  float: left;
+  margin: 16px 16px 0 16px;
+
+  @media #{$large-up} {
+    width: -webkit-calc(100% - 256px - 256px - 16px - 16px);
+    width: -moz-calc(100% - 256px - 256px - 16px - 16px);
+    width: calc(100% - 256px - 256px - 16px - 16px);
+
+    min-height: 100%;
+    min-height: -webkit-calc(100% - 64px - 16px - 16px);
+    min-height: -moz-calc(100% - 64px - 16px - 16px);
+    min-height: calc(100% - 64px - 16px - 16px);
+  }
+}
