@@ -6342,6 +6342,7 @@ th.hide-for-touch {
     .right-image-card.mdl-card .mdl-card__title p.mdl-card__subtitle-text {
       padding: 0 0 16px 16px; }
   .right-image-card.mdl-card .mdl-card__image {
+    height: 112px;
     width: 112px;
     position: absolute;
     right: 16px;
