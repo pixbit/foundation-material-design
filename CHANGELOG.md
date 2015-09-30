@@ -1,5 +1,10 @@
 ## Changelog
 
+###### v0.3.0 (2015-09-30) ######
+- Copying base CSS file to top directory
+
+---
+
 ###### v0.1.3 (2015-09-28) ######
 - Copying base CSS file to top directory
 
