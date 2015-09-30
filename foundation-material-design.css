@@ -6331,6 +6331,9 @@ th.hide-for-touch {
       min-height: -moz-calc(100% - 64px - 16px - 16px);
       min-height: calc(100% - 64px - 16px - 16px); } }
 
+.mdl-card {
+  width: 368px; }
+
 .right-image-card.mdl-card {
   min-height: inherit; }
   .right-image-card.mdl-card .mdl-card__title {
