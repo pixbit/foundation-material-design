@@ -1,7 +1,7 @@
 ## Changelog
 
-###### v0.3.5 (2015-09-30) ######
-- Content canvas now staying still while inside scrolls!
+###### v0.4.0 (2015-09-30) ######
+- Content canvas now staying still while inside scrolls!gi
 
 ---
 
