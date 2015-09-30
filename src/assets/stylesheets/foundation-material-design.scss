@@ -107,3 +107,24 @@
     min-height: calc(100% - 64px - 16px - 16px);
   }
 }
+
+.right-image-card.mdl-card{
+  min-height: inherit;
+  .mdl-card__title{
+    padding: 0;
+    display: block;
+    height: 128px;
+    h2.mdl-card__title-text{
+      padding: 24px 0 0 16px;
+    }
+    p.mdl-card__subtitle-text{
+      padding: 0 0 16px 16px;
+    }
+  }
+  .mdl-card__image{
+    width: 112px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+  }
+}

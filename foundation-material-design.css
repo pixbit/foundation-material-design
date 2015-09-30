@@ -6330,3 +6330,11 @@ th.hide-for-touch {
       min-height: -webkit-calc(100% - 64px - 16px - 16px);
       min-height: -moz-calc(100% - 64px - 16px - 16px);
       min-height: calc(100% - 64px - 16px - 16px); } }
+
+.right-image-card.mdl-card {
+  min-height: inherit; }
+  .right-image-card.mdl-card .mdl-card__title {
+    display: block; }
+  .right-image-card.mdl-card .mdl-card__image {
+    width: 112px;
+    position: absolute; }
