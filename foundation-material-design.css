@@ -6347,3 +6347,11 @@ th.hide-for-touch {
     position: absolute;
     right: 16px;
     top: 16px; }
+
+.multiple-image-card {
+  min-height: inherit; }
+  .multiple-image-card .mdl-card__image {
+    float: left;
+    margin: 0 0 8px 8px;
+    height: 112px;
+    width: 112px; }

@@ -108,6 +108,10 @@
   }
 }
 
+.mdl-card{
+  width: 368px;
+}
+
 .right-image-card.mdl-card{
   min-height: inherit;
   .mdl-card__title{
@@ -127,5 +131,15 @@
     position: absolute;
     right: 16px;
     top: 16px;
+  }
+}
+
+.multiple-image-card{
+  min-height: inherit;
+  .mdl-card__image{
+    float: left;
+    margin: 0 0 8px 8px;
+    height: 112px;
+    width: 112px;
   }
 }
