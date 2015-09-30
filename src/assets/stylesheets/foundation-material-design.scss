@@ -101,10 +101,12 @@
     width: -moz-calc(100% - 256px - 256px - 16px - 16px);
     width: calc(100% - 256px - 256px - 16px - 16px);
 
-    min-height: 100%;
-    min-height: -webkit-calc(100% - 64px - 16px - 16px);
-    min-height: -moz-calc(100% - 64px - 16px - 16px);
-    min-height: calc(100% - 64px - 16px - 16px);
+    max-height: 100%;
+    max-height: -webkit-calc(100% - 64px - 16px);
+    max-height: -moz-calc(100% - 64px - 16px);
+    max-height: calc(100% - 64px - 16px);
+
+    overflow: scroll;
   }
 }
 

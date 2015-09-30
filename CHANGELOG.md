@@ -1,8 +1,12 @@
 ## Changelog
 
+###### v0.3.5 (2015-09-30) ######
+- Content canvas now staying still while inside scrolls!
+
+---
+
 ###### v0.3.3 (2015-09-30) ######
 - Made card widths a multiple of 8 (368px)
-
 ---
 
 ###### v0.3.2 (2015-09-30) ######
