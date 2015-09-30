@@ -6320,16 +6320,16 @@ th.hide-for-touch {
 #content-canvas {
   background-color: #D8D8D8;
   float: left;
-  margin: 16px 16px 0 16px; }
+  margin: 0 16px; }
   @media only screen and (min-width: 64.0625em) {
     #content-canvas {
       width: -webkit-calc(100% - 256px - 256px - 16px - 16px);
       width: -moz-calc(100% - 256px - 256px - 16px - 16px);
       width: calc(100% - 256px - 256px - 16px - 16px);
       max-height: 100%;
-      max-height: -webkit-calc(100% - 64px - 16px);
-      max-height: -moz-calc(100% - 64px - 16px);
-      max-height: calc(100% - 64px - 16px);
+      max-height: -webkit-calc(100% - 64px);
+      max-height: -moz-calc(100% - 64px);
+      max-height: calc(100% - 64px);
       overflow: scroll; } }
 
 .mdl-card {
