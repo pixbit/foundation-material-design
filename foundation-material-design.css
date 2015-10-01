@@ -6356,9 +6356,11 @@ th.hide-for-touch {
   float: left;
   height: 100%; }
   .nav-drawer.clipped-under-app-bar {
-    height: -webkit-calc(100% - 64px);
-    height: -moz-calc(100% - 64px);
-    height: calc(100% - 64px); }
+    max-height: 100%;
+    max-height: -webkit-calc(100% - 64px);
+    max-height: -moz-calc(100% - 64px);
+    max-height: calc(100% - 64px);
+    overflow: scroll; }
   @media only screen and (min-width: 64.0625em) {
     .nav-drawer {
       width: 256px; } }
