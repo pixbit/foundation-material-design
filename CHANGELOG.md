@@ -1,5 +1,12 @@
 ## Changelog
 
+###### v0.5.0 (2015-10-01) ######
+- Single List items with avatars now styled for desktop
+- List subheaders styled
+- Text and icon single items in lists styled
+
+---
+
 ###### v0.4.3 (2015-09-30) ######
 - Refactored Gulpfile to monitor HTML, JS, & SASS files
 
