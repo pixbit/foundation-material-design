@@ -6371,28 +6371,35 @@ th.hide-for-touch {
 
 ul.fmd-list {
   list-style: none;
-  margin: 0; }
+  margin: 0;
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0 8px 0; }
+  ul.fmd-list li.list-subheader {
+    color: #888;
+    height: 24px;
+    padding-left: 24px; }
+    ul.fmd-list li.list-subheader span {
+      float: left;
+      font-size: 13px;
+      line-height: 24px; }
   ul.fmd-list li.single-line-item-text-only {
-    font-size: 13px;
-    background-color: #3D4CB4;
     height: 48px; }
     ul.fmd-list li.single-line-item-text-only span {
       float: left;
-      height: 16px;
-      margin: 16px 0; }
+      font-size: 13px;
+      line-height: 48px; }
   ul.fmd-list li.single-line-item-with-icon,
   ul.fmd-list li.single-line-item-with-avatar {
-    background-color: #0287D4;
     height: 48px; }
     ul.fmd-list li.single-line-item-with-icon .icon-container,
     ul.fmd-list li.single-line-item-with-avatar .icon-container {
       margin: 0; }
     ul.fmd-list li.single-line-item-with-icon span,
     ul.fmd-list li.single-line-item-with-avatar span {
-      font-size: 13px;
       float: left;
-      height: 16px;
-      margin: 16px 0; }
+      padding-left: 20px;
+      font-size: 13px;
+      line-height: 48px; }
   ul.fmd-list li.single-line-item-text-only {
     padding-left: 24px; }
   ul.fmd-list li.single-line-item-with-icon,

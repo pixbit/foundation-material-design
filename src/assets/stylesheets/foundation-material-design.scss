@@ -132,8 +132,6 @@
 /**
  * Side-nav, Right-nav, & Lists
  */
-$single-line-item-text-only-height: 48px;
-$single-line-item-with-image-height: 48px;
 .nav-drawer{
   background-color: white;
   float: left;
@@ -156,28 +154,41 @@ $single-line-item-with-image-height: 48px;
 ul.fmd-list{
   list-style: none;
   margin: 0;
-  li.single-line-item-text-only{
-    font-size: 13px;
-    background-color: $dp56;
-    height: $single-line-item-text-only-height;
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0 8px 0;
+  // background-color: $dp8;
+  li.list-subheader{
+    // background-color: $dp32;
+    color: #888;
+    height: 24px;
+    padding-left: 24px;
     span{
       float: left;
-      height: $single-line-item-text-only-height/3;
-      margin: $single-line-item-text-only-height/3 0;
+      font-size: 13px;
+      line-height: 24px;
+    }
+  }
+  li.single-line-item-text-only{
+    // background-color: $dp48;
+    height: 48px;
+    span{
+      float: left;
+      font-size: 13px;
+      line-height: 48px;
     }
   }
   li.single-line-item-with-icon,
   li.single-line-item-with-avatar{
-    background-color: $dp48;
-    height: $single-line-item-with-image-height;
+    // background-color: $dp48;
+    height: 48px;
     .icon-container{
       margin: 0;
     }
     span{
-      font-size: 13px;
       float: left;
-      height: $single-line-item-with-image-height/3;
-      margin: $single-line-item-with-image-height/3 0;
+      padding-left: 20px;
+      font-size: 13px;
+      line-height: 48px;
     }
   }
   li.single-line-item-text-only{
