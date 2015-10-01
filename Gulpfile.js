@@ -27,8 +27,8 @@
       'bower-1:copy-foundation-md-files-to-top-directory',
       'bower-2:inject-deps-into-foundation-md-index',
       [
-        'monitor:html'//,
-      //   'monitor:styles'
+        'monitor:html',
+        'monitor:styles'
       ],
       'default-8:start-server',
       done
@@ -190,8 +190,29 @@
       .pipe( gulp.dest('build') );
   });
 
-  // gulp.task('monitor:styles', function(){
-  //   gulp.watch( 'src/**/*.scss', ['sass'] );
-  // });
+  ////////////////////////
+  // Monitor SASS Tasks //
+  ////////////////////////
+  gulp.task('monitor:styles', function(){
+    gulp.watch( 'src/**/*.scss', ['sass-0:rebuild-all-sass'] );
+  });
+
+  gulp.task('sass-0:rebuild-all-sass', function(done){
+    runSequence(
+      'sass-1:clean-build-and-main-css-files',
+      'default-4:sass-all-stylesheets',
+      'default-7:inject-deps-into-html-files',
+      'bower-1:copy-foundation-md-files-to-top-directory',
+      'bower-2:inject-deps-into-foundation-md-index',
+      done
+    );
+  });
+
+  gulp.task('sass-1:clean-build-and-main-css-files', function() {
+    return del([
+      'build/**/*.css',
+      './foundation-material-design.css'
+    ]);
+  });
 
 }());

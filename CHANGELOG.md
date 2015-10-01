@@ -1,7 +1,12 @@
 ## Changelog
 
+###### v0.4.3 (2015-09-30) ######
+- Refactored Gulpfile to monitor HTML, JS, & SASS files
+
+---
+
 ###### v0.4.0 (2015-09-30) ######
-- Content canvas now staying still while inside scrolls!gi
+- Content canvas now staying still while inside scrolls!
 
 ---
 
