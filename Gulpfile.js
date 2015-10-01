@@ -1,40 +1,119 @@
 (function() {
   'use strict';
 
+  var browserSync = require('browser-sync').create();
   var del = require('del');
   var gulp = require('gulp');
-  var jscs = require('gulp-jscs');
-  var sass = require('gulp-sass');
-  var concat = require('gulp-concat');
   var inject = require('gulp-inject');
   var jshint = require('gulp-jshint');
-  var wiredep = require('wiredep').stream;
+  var jscs = require('gulp-jscs');
   var runSequence = require('run-sequence');
+  var sass = require('gulp-sass');
   var stylish = require('gulp-jscs-stylish');
-  var browserSync = require('browser-sync').create();
+  var wiredep = require('wiredep').stream;
+  var concat = require('gulp-concat');
 
   var config = require('./config.js');
 
   gulp.task('default', function(done){
     runSequence(
-      'clean',
-      'vet',
-      'sass',
-      'concat:js',
-      'build',
-      'inject',
-      'gh',
-      'copy:gh-css',
-      'server',
-      [
-        // 'monitor:html',
-        'monitor:styles'
-      ],
+      'default-1:clean-build-folder-and-main-files',
+      'default-2:vet-javascript-files',
+      'default-3:copy-all-src-except-scss-to-build',
+      'default-4:sass-all-stylesheets',
+      // 'default-5:concat-all-bower-css-into-one-file',
+      'default-6:concat-all-bower-js-into-one-file',
+      'default-7:inject-deps-into-html-files',
+      'bower-1:copy-foundation-md-files-to-top-directory',
+      'bower-2:inject-deps-into-foundation-md-index',
+      // [
+      //   'monitor:html',
+      //   'monitor:styles'
+      // ],
+      'default-8:start-server',
       done
     );
   });
 
-  gulp.task('server', function() {
+  gulp.task('default-1:clean-build-folder-and-main-files', function(){
+    return del([
+      config.client,
+      './foundation-material-design.css',
+      './index.html'
+    ]);
+  });
+
+  gulp.task('default-2:vet-javascript-files', function(){
+    return gulp
+      .src( config.allJS )
+      .pipe( jshint() )
+      .pipe( jscs() )
+      .on( 'error', function(){} )
+      .pipe( stylish.combineWithHintResults() )
+      .pipe( jshint.reporter('jshint-stylish') );
+  });
+
+  gulp.task('default-3:copy-all-src-except-scss-to-build', function () {
+    return gulp
+      .src( config.buildComponents )
+      .pipe( gulp.dest( config.client ) );
+  });
+
+  gulp.task('default-4:sass-all-stylesheets', function(){
+    return gulp
+      .src( config.srcSASS )
+      .pipe(
+        sass({
+          includePaths: ['bower_components/foundation/scss']
+        })
+        .on('error', sass.logError))
+      .pipe( gulp.dest( config.client ) )
+      .pipe( browserSync.stream() );
+  });
+
+  // gulp.task('default-5:concat-all-bower-css-into-one-file', function() {
+  //   return gulp
+  //     .src(require('wiredep')().css)
+  //     .pipe(concat('bower-styles.css'))
+  //     .pipe(gulp.dest(config.clientStyles));
+  // });
+
+  gulp.task('default-6:concat-all-bower-js-into-one-file', function () {
+    return gulp
+      .src(require('wiredep')({
+        "overrides": {
+          "foundation": {
+            "main": [
+              "js/foundation/foundation.js"
+              // "js/foundation/foundation.abide.js",
+              // "js/foundation/foundation.accordion.js",
+              // "js/foundation/foundation.alert.js",
+              // "js/foundation/foundation.clearing.js",
+              // "js/foundation/foundation.dropdown.js",
+              // "js/foundation/foundation.equalizer.js",
+              // "js/foundation/foundation.interchange.js",
+              // "js/foundation/foundation.joyride.js",
+              // "js/foundation/foundation.magellan.js",
+              // "js/foundation/foundation.offcanvas.js",
+              // "js/foundation/foundation.orbit.js",
+              // "js/foundation/foundation.reveal.js",
+              // "js/foundation/foundation.slider.js",
+              // "js/foundation/foundation.tab.js",
+              // "js/foundation/foundation.tooltip.js",
+              // "js/foundation/foundation.topbar.js",
+            ]
+          }
+        }
+      }).js)
+      .pipe(concat('bower-scripts.js'))
+      .pipe(gulp.dest(config.clientScripts));
+  });
+
+  gulp.task('default-7:inject-deps-into-html-files', function() {
+    return injectBowerDeps('build/**/*.html', config.client);
+  });
+
+  gulp.task('default-8:start-server', function() {
     browserSync.init({
         server: {
           baseDir: './'
@@ -42,15 +121,43 @@
     });
   });
 
-  gulp.task('gh', function(done) {
-    runSequence(
-      ['concat:gh-styles', 'concat:gh-scripts'],
-      'build:gh',
-      'inject:gh',
-      done
-    );
+  //////////////////////////
+  // Bower-specific Tasks //
+  //////////////////////////
+  gulp.task('bower-1:copy-foundation-md-files-to-top-directory', function() {
+    gulp
+      .src('src/index.html')
+      .pipe(gulp.dest('./'));
+    return gulp
+      .src('build/assets/stylesheets/foundation-material-design.css')
+      .pipe(gulp.dest('./'));
   });
 
+  gulp.task('bower-2:inject-deps-into-foundation-md-index', function() {
+    return injectBowerDeps('./index.html', './');
+  });
+
+  function injectBowerDeps(fromHere, toHere){
+    gulp
+      .src(fromHere)
+      .pipe(
+        inject(
+          gulp.src(
+            [
+              'build/**/bower-scripts.js',
+              // 'build/**/bower-styles.css',
+              config.allClient
+            ]
+          ),
+          { relative: true }
+        )
+      )
+      .pipe( gulp.dest(toHere) );
+  }
+
+  ////////////////////////
+  // Monitor HTML Tasks //
+  ////////////////////////
   gulp.task('monitor:html', function(){
     return gulp.watch( config.srcHTML, ['update:html']);
   });
@@ -67,155 +174,8 @@
     );
   });
 
-  gulp.task('clean', function(){
-    return del([
-      config.client,
-      './gh/',
-      './index.html'
-    ]);
-  });
-
-  //////////////////////
-  // Javascript Tasks //
-  //////////////////////
-
-  gulp.task('concat:js', function () {
-    return concatScripts(config.clientScripts);
-  });
-
-  gulp.task('inject', function() {
-    return gulp
-      .src( config.clientIndex )
-      .pipe(
-        inject(
-          gulp.src(
-            [
-              config.clientScripts + 'scripts.js',
-              config.clientStyles + 'foundation-material-design.css',
-              config.allClient
-            ]
-          ),
-          { relative: true }
-        )
-      )
-      .pipe( gulp.dest( config.client ) );
-  });
-
-  gulp.task('build:gh', function () {
-    gulp.src('!' + config.index).pipe(gulp.dest('./'));
-
-    return gulp
-      .src([
-        '!' + config.index,
-        config.srcHTML
-      ])
-      .pipe( gulp.dest('gh/') );
-  });
-
-  gulp.task('concat:gh-styles', function() {
-    return concatStyles('gh');
-  });
-
-  gulp.task('concat:gh-scripts', function() {
-    return concatScripts('gh');
-  });
-
-  gulp.task('inject:gh', function() {
-    gulp
-      .src('gh/**/*.html')
-      .pipe(
-        inject(
-          gulp.src(
-            [
-              'gh/**/*.js',
-              'gh/**/*.css'
-            ]
-          ),
-          { relative: true }
-        )
-      )
-      .pipe( gulp.dest( 'gh/' ) );
-
-    return gulp
-      .src('./index.html')
-      .pipe(
-        inject(
-          gulp.src(
-            [
-              'gh/**/*.js',
-              'gh/**/*.css'
-            ]
-          ),
-          { relative: true }
-        )
-      )
-      .pipe( gulp.dest( './' ) );
-  });
-
-  function concatScripts(destination){
-    return gulp
-      .src(require('wiredep')({
-        "overrides": {
-          "foundation": {
-            "main": [
-              "js/foundation.js",
-              "js/foundation/foundation.dropdown.js"
-            ]
-          }
-        }
-      }).js)
-      .pipe(concat('scripts.js'))
-      .pipe(gulp.dest(destination));
-  }
-
-  ///////////////
-  // CSS Tasks //
-  ///////////////
-
   gulp.task('monitor:styles', function(){
     gulp.watch( 'src/**/*.scss', ['sass'] );
-  });
-
-  gulp.task('sass', function(){
-    concatStyles(config.client).pipe(browserSync.stream());
-    return concatStyles('gh').pipe(browserSync.stream());
-  });
-
-  function concatStyles(destination) {
-    return gulp
-    .src( config.srcSASS )
-    .pipe(
-      sass({
-        includePaths: ['bower_components/foundation/scss']
-      })
-      .on('error', sass.logError))
-    .pipe(gulp.dest(destination));
-  }
-
-  gulp.task('build', function(){
-    return gulp
-      .src( config.buildComponents )
-      .pipe( gulp.dest( config.client ) );
-  });
-
-  gulp.task('copy:gh-css', function() {
-    return gulp
-      .src('gh/assets/stylesheets/*.css')
-      .pipe(gulp.dest('./'));
-  });
-
-  //////////////////////
-  // Javascript Tasks //
-  //////////////////////
-
-  gulp.task('vet', function(){
-    return gulp
-      .src( config.allJS )
-      .pipe( jshint() )
-      .pipe( jscs() )
-      .on( 'error', function(){} )
-      .pipe( stylish.combineWithHintResults() )
-      .pipe( jshint.reporter('jshint-stylish') );
   });
 
 }());
