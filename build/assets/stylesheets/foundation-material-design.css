@@ -58,7 +58,7 @@ body {
   font-size: 100%; }
 
 body {
-  background: #fff;
+  background: #FFFFFF;
   color: #222;
   cursor: auto;
   font-family: Roboto, Arial, sans-serif;
@@ -6297,28 +6297,16 @@ th.hide-for-touch {
     padding-top: 16px;
     margin-left: 20px; }
 
-.toolbar-icon-container {
+.icon-container {
   float: left;
   height: 48px;
   width: 48px;
   margin: 8px 0; }
-  .toolbar-icon-container .material-icons {
+  .icon-container .material-icons {
     margin: 12px; }
 
-.nav-drawer {
-  background-color: #EC008C;
-  float: left;
-  height: 100%; }
-  .nav-drawer.clipped-under-app-bar {
-    height: -webkit-calc(100% - 64px);
-    height: -moz-calc(100% - 64px);
-    height: calc(100% - 64px); }
-  @media only screen and (min-width: 64.0625em) {
-    .nav-drawer {
-      width: 256px; } }
-
 #content-canvas {
-  background-color: #D8D8D8;
+  background-color: #FFFFFF;
   float: left;
   margin: 0 16px; }
   @media only screen and (min-width: 64.0625em) {
@@ -6359,3 +6347,54 @@ th.hide-for-touch {
     margin: 0 0 8px 8px;
     height: 112px;
     width: 112px; }
+
+/**
+ * Side-nav, Right-nav, & Lists
+ */
+.nav-drawer {
+  background-color: white;
+  float: left;
+  height: 100%; }
+  .nav-drawer.clipped-under-app-bar {
+    height: -webkit-calc(100% - 64px);
+    height: -moz-calc(100% - 64px);
+    height: calc(100% - 64px); }
+  @media only screen and (min-width: 64.0625em) {
+    .nav-drawer {
+      width: 256px; } }
+
+#side-nav {
+  border-right: 1px solid #E0E0E0; }
+
+#right-nav {
+  border-left: 1px solid #E0E0E0; }
+
+ul.fmd-list {
+  list-style: none;
+  margin: 0; }
+  ul.fmd-list li.single-line-item-text-only {
+    font-size: 13px;
+    background-color: #3D4CB4;
+    height: 48px; }
+    ul.fmd-list li.single-line-item-text-only span {
+      float: left;
+      height: 16px;
+      margin: 16px 0; }
+  ul.fmd-list li.single-line-item-with-icon,
+  ul.fmd-list li.single-line-item-with-avatar {
+    background-color: #0287D4;
+    height: 48px; }
+    ul.fmd-list li.single-line-item-with-icon .icon-container,
+    ul.fmd-list li.single-line-item-with-avatar .icon-container {
+      margin: 0; }
+    ul.fmd-list li.single-line-item-with-icon span,
+    ul.fmd-list li.single-line-item-with-avatar span {
+      font-size: 13px;
+      float: left;
+      height: 16px;
+      margin: 16px 0; }
+  ul.fmd-list li.single-line-item-text-only {
+    padding-left: 24px; }
+  ul.fmd-list li.single-line-item-with-icon,
+  ul.fmd-list li.single-line-item-with-avatar {
+    padding-left: 12px; }

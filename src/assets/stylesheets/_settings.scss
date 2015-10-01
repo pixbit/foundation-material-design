@@ -95,7 +95,20 @@ $font-family-sans-serif: Roboto, Arial, sans-serif;
 // $font-weight-normal: normal;
 // $font-weight-bold: bold;
 
-// $white       : #FFFFFF;
+// Google Vertical Sizing Key
+$dp8 : #FF498C;
+$dp16: #A0FFFF;
+$dp32: #FFAC2F;
+$dp48: #0287D4;
+$dp56: #3D4CB4;
+$dp64: #4759BA;
+$dp72: #4F24A8;
+$dp80: #2BAE6F;
+$dp88: #00786B;
+
+$grey: #E0E0E0;
+$seam-border-color : $grey;
+$white       : #FFFFFF;
 // $ghost       : #FAFAFA;
 // $snow        : #F9F9F9;
 // $vapor       : #F6F6F6;
@@ -124,7 +137,7 @@ $font-family-sans-serif: Roboto, Arial, sans-serif;
 // $info-color: #a0d3e8;
 
 // We use these to control various global styles
-// $body-bg: $white;
+$body-bg: $white;
 // $body-font-color: $jet;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
