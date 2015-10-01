@@ -26,10 +26,10 @@
       'default-7:inject-deps-into-html-files',
       'bower-1:copy-foundation-md-files-to-top-directory',
       'bower-2:inject-deps-into-foundation-md-index',
-      // [
-      //   'monitor:html',
+      [
+        'monitor:html'//,
       //   'monitor:styles'
-      // ],
+      ],
       'default-8:start-server',
       done
     );
@@ -159,23 +159,39 @@
   // Monitor HTML Tasks //
   ////////////////////////
   gulp.task('monitor:html', function(){
-    return gulp.watch( config.srcHTML, ['update:html']);
+    return gulp.watch( config.srcHTML, ['html-0:rebuild-all-html']);
   });
 
-  gulp.task('update:html', function(done) {
+  gulp.task('html-0:rebuild-all-html', function(done) {
     runSequence(
-      'clean',
-      'sass',
-      'concat:js',
-      'build',
-      'inject',
-      browserSync.reload,
+      'html-1:clean-build-and-main-html-files',
+      'html-2:copy-all-src-html-files-to-build',
+      'default-7:inject-deps-into-html-files',
+      'bower-1:copy-foundation-md-files-to-top-directory',
+      'bower-2:inject-deps-into-foundation-md-index',
       done
     );
   });
 
-  gulp.task('monitor:styles', function(){
-    gulp.watch( 'src/**/*.scss', ['sass'] );
+  gulp.task('html-1:clean-build-and-main-html-files', function() {
+    return del([
+      'build/**/*.html',
+      './index.html'
+    ]);
   });
+
+  gulp.task('html-2:copy-all-src-html-files-to-build', function () {
+    return gulp
+      .src(
+        [
+          'src/**/*.html',
+        ]
+      )
+      .pipe( gulp.dest('build') );
+  });
+
+  // gulp.task('monitor:styles', function(){
+  //   gulp.watch( 'src/**/*.scss', ['sass'] );
+  // });
 
 }());
