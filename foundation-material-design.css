@@ -6388,18 +6388,27 @@ ul.fmd-list {
       float: left;
       font-size: 13px;
       line-height: 48px; }
-  ul.fmd-list li.single-line-item-with-icon,
-  ul.fmd-list li.single-line-item-with-avatar {
+  ul.fmd-list li.single-line-item-with-icon {
     height: 48px; }
-    ul.fmd-list li.single-line-item-with-icon .icon-container,
-    ul.fmd-list li.single-line-item-with-avatar .icon-container {
+    ul.fmd-list li.single-line-item-with-icon .icon-container {
       margin: 0; }
-    ul.fmd-list li.single-line-item-with-icon span,
-    ul.fmd-list li.single-line-item-with-avatar span {
+    ul.fmd-list li.single-line-item-with-icon span {
       float: left;
       padding-left: 20px;
       font-size: 13px;
       line-height: 48px; }
+  ul.fmd-list li.single-line-item-with-avatar {
+    height: 64px; }
+    ul.fmd-list li.single-line-item-with-avatar img.avatar {
+      margin: 12px 0 12px 12px;
+      border-radius: 20px;
+      float: left;
+      width: 40px; }
+    ul.fmd-list li.single-line-item-with-avatar span {
+      float: left;
+      padding-left: 16px;
+      font-size: 13px;
+      line-height: 64px; }
   ul.fmd-list li.single-line-item-text-only {
     padding-left: 24px; }
   ul.fmd-list li.single-line-item-with-icon,

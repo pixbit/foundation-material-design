@@ -177,8 +177,7 @@ ul.fmd-list{
       line-height: 48px;
     }
   }
-  li.single-line-item-with-icon,
-  li.single-line-item-with-avatar{
+  li.single-line-item-with-icon{
     // background-color: $dp48;
     height: 48px;
     .icon-container{
@@ -189,6 +188,22 @@ ul.fmd-list{
       padding-left: 20px;
       font-size: 13px;
       line-height: 48px;
+    }
+  }
+  li.single-line-item-with-avatar{
+    // background-color: $dp64;
+    height: 64px;
+    img.avatar{
+      margin: 12px 0 12px 12px;
+      border-radius: 20px;
+      float: left;
+      width: 40px;
+    }
+    span{
+      float: left;
+      padding-left: 16px;
+      font-size: 13px;
+      line-height: 64px;
     }
   }
   li.single-line-item-text-only{
