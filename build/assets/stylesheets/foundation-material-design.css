@@ -6384,6 +6384,11 @@ ul.fmd-list {
       float: left;
       font-size: 13px;
       line-height: 24px; }
+  ul.fmd-list li.single-line-item-text-only:hover,
+  ul.fmd-list li.single-line-item-with-icon:hover,
+  ul.fmd-list li.single-line-item-with-avatar:hover {
+    background-color: rgba(158, 158, 158, 0.2);
+    cursor: pointer; }
   ul.fmd-list li.single-line-item-text-only {
     height: 48px; }
     ul.fmd-list li.single-line-item-text-only span {
@@ -6412,7 +6417,11 @@ ul.fmd-list {
       font-size: 13px;
       line-height: 64px; }
   ul.fmd-list li.single-line-item-text-only {
-    padding-left: 24px; }
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-left: 16px; }
   ul.fmd-list li.single-line-item-with-icon,
   ul.fmd-list li.single-line-item-with-avatar {
-    padding-left: 12px; }
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-left: 8px; }
