@@ -6321,7 +6321,7 @@ th.hide-for-touch {
       max-height: -webkit-calc(100% - 56px);
       max-height: -moz-calc(100% - 56px);
       max-height: calc(100% - 56px);
-      overflow: scroll; } }
+      overflow-y: scroll; } }
 
 .mdl-card {
   width: 368px; }
@@ -6363,7 +6363,7 @@ th.hide-for-touch {
     max-height: -webkit-calc(100% - 56px);
     max-height: -moz-calc(100% - 56px);
     max-height: calc(100% - 56px);
-    overflow: scroll; }
+    overflow-y: scroll; }
   @media only screen and (min-width: 64.0625em) {
     .nav-drawer {
       width: 256px; } }

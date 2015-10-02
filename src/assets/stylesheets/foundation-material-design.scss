@@ -94,7 +94,7 @@ $app-bar-height: 56px;
     max-height: -moz-calc(100% - #{$app-bar-height});
     max-height: calc(100% - #{$app-bar-height});
 
-    overflow: scroll;
+    overflow-y: scroll;
   }
 }
 
@@ -147,7 +147,7 @@ $app-bar-height: 56px;
     max-height: -moz-calc(100% - #{$app-bar-height});
     max-height: calc(100% - #{$app-bar-height});
 
-    overflow: scroll;
+    overflow-y: scroll;
   }
   @media #{$large-up} {
     width: 256px;
