@@ -48,6 +48,7 @@
 // @import 'foundation/components/visibility';
 
 $app-bar-height: 56px;
+$side-nav-width: 256px;
 #app-bar{
   max-width: none;
   background-color: #4285f4;
@@ -82,12 +83,11 @@ $app-bar-height: 56px;
 #content-canvas{
   background-color: $white;
   float: left;
-  margin: 0 16px;
 
   @media #{$large-up} {
-    width: -webkit-calc(100% - 256px - 256px - 16px - 16px);
-    width: -moz-calc(100% - 256px - 256px - 16px - 16px);
-    width: calc(100% - 256px - 256px - 16px - 16px);
+    width: -webkit-calc(100% - #{$side-nav-width*2});
+    width: -moz-calc(100% - #{$side-nav-width*2});
+    width: calc(100% - #{$side-nav-width*2});
 
     max-height: 100%;
     max-height: -webkit-calc(100% - #{$app-bar-height});
@@ -150,7 +150,7 @@ $app-bar-height: 56px;
     overflow-y: scroll;
   }
   @media #{$large-up} {
-    width: 256px;
+    width: $side-nav-width;
   }
 }
 #side-nav{
