@@ -158,6 +158,9 @@ $side-nav-width: 256px;
 }
 #right-nav{
   border-left: 1px solid $seam-border-color;
+  ul.fmd-list{
+    float: left;
+  }
 }
 ul.fmd-list{
   list-style: none;
@@ -170,6 +173,10 @@ ul.fmd-list{
     color: #888;
     height: 24px;
     padding-left: 24px;
+    &.with-bottom-border{
+      border-bottom: 1px solid #ddd;
+      height:32px;
+    }
     span{
       float: left;
       font-size: 13px;
@@ -182,6 +189,20 @@ ul.fmd-list{
     &:hover{
       background-color: rgba(158,158,158,.2);
       cursor: pointer;
+    }
+  }
+  li.two-line-item-text-only{
+    // background-color: $dp72;
+    // height: 72px;
+    span{
+      color: red;
+    }
+    p{
+      margin-bottom: 0;
+      float: left;
+      font-size: 13px;
+      line-height: 24px;
+      padding: 12px 0;
     }
   }
   li.single-line-item-text-only{
@@ -222,7 +243,8 @@ ul.fmd-list{
       line-height: 64px;
     }
   }
-  li.single-line-item-text-only{
+  li.single-line-item-text-only,
+  li.two-line-item-text-only{
     margin-left: 8px;
     margin-right: 8px;
     padding-left: 16px;

@@ -6372,6 +6372,8 @@ th.hide-for-touch {
 
 #right-nav {
   border-left: 1px solid #E0E0E0; }
+  #right-nav ul.fmd-list {
+    float: left; }
 
 ul.fmd-list {
   list-style: none;
@@ -6382,6 +6384,9 @@ ul.fmd-list {
     color: #888;
     height: 24px;
     padding-left: 24px; }
+    ul.fmd-list li.list-subheader.with-bottom-border {
+      border-bottom: 1px solid #ddd;
+      height: 32px; }
     ul.fmd-list li.list-subheader span {
       float: left;
       font-size: 13px;
@@ -6391,6 +6396,14 @@ ul.fmd-list {
   ul.fmd-list li.single-line-item-with-avatar:hover {
     background-color: rgba(158, 158, 158, 0.2);
     cursor: pointer; }
+  ul.fmd-list li.two-line-item-text-only span {
+    color: red; }
+  ul.fmd-list li.two-line-item-text-only p {
+    margin-bottom: 0;
+    float: left;
+    font-size: 13px;
+    line-height: 24px;
+    padding: 12px 0; }
   ul.fmd-list li.single-line-item-text-only {
     height: 48px; }
     ul.fmd-list li.single-line-item-text-only span {
@@ -6418,7 +6431,8 @@ ul.fmd-list {
       padding-left: 16px;
       font-size: 13px;
       line-height: 64px; }
-  ul.fmd-list li.single-line-item-text-only {
+  ul.fmd-list li.single-line-item-text-only,
+  ul.fmd-list li.two-line-item-text-only {
     margin-left: 8px;
     margin-right: 8px;
     padding-left: 16px; }
