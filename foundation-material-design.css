@@ -6404,7 +6404,7 @@ ul.fmd-list {
       margin: 0; }
     ul.fmd-list li.single-line-item-with-icon span {
       float: left;
-      padding-left: 16px;
+      padding-left: 20px;
       font-size: 13px;
       line-height: 48px; }
   ul.fmd-list li.single-line-item-with-avatar {
