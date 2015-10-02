@@ -90,9 +90,9 @@ $app-bar-height: 56px;
     width: calc(100% - 256px - 256px - 16px - 16px);
 
     max-height: 100%;
-    max-height: -webkit-calc(100% - $app-bar-height);
-    max-height: -moz-calc(100% - $app-bar-height);
-    max-height: calc(100% - $app-bar-height);
+    max-height: -webkit-calc(100% - #{$app-bar-height});
+    max-height: -moz-calc(100% - #{$app-bar-height});
+    max-height: calc(100% - #{$app-bar-height});
 
     overflow: scroll;
   }
@@ -143,9 +143,9 @@ $app-bar-height: 56px;
   height: 100%;
   &.clipped-under-app-bar{
     max-height: 100%;
-    max-height: -webkit-calc(100% - $app-bar-height);
-    max-height: -moz-calc(100% - $app-bar-height);
-    max-height: calc(100% - $app-bar-height);
+    max-height: -webkit-calc(100% - #{$app-bar-height});
+    max-height: -moz-calc(100% - #{$app-bar-height});
+    max-height: calc(100% - #{$app-bar-height});
 
     overflow: scroll;
   }

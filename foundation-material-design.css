@@ -6318,9 +6318,9 @@ th.hide-for-touch {
       width: -moz-calc(100% - 256px - 256px - 16px - 16px);
       width: calc(100% - 256px - 256px - 16px - 16px);
       max-height: 100%;
-      max-height: -webkit-calc(100% - $app-bar-height);
-      max-height: -moz-calc(100% - $app-bar-height);
-      max-height: calc(100% - $app-bar-height);
+      max-height: -webkit-calc(100% - 56px);
+      max-height: -moz-calc(100% - 56px);
+      max-height: calc(100% - 56px);
       overflow: scroll; } }
 
 .mdl-card {
@@ -6360,9 +6360,9 @@ th.hide-for-touch {
   height: 100%; }
   .nav-drawer.clipped-under-app-bar {
     max-height: 100%;
-    max-height: -webkit-calc(100% - $app-bar-height);
-    max-height: -moz-calc(100% - $app-bar-height);
-    max-height: calc(100% - $app-bar-height);
+    max-height: -webkit-calc(100% - 56px);
+    max-height: -moz-calc(100% - 56px);
+    max-height: calc(100% - 56px);
     overflow: scroll; }
   @media only screen and (min-width: 64.0625em) {
     .nav-drawer {
