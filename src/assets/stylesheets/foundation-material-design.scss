@@ -47,20 +47,26 @@
 // @import 'foundation/components/offcanvas';
 // @import 'foundation/components/visibility';
 
+$app-bar-height: 56px;
 #app-bar{
   max-width: none;
-  background-color: #3F51B5;
+  background-color: #4285f4;
   color: white;
   @media #{$large-up} {
-    height: 64px;
+    height: $app-bar-height;
   }
-  padding-left: 12px;
-  h6.title.with-toolbar-icon{
+  .material-icons{
+    float: left;
+    padding: 16px 24px;
+    cursor: pointer;
+  }
+  .title-with-toolbar-icon{
     color: white;
     float: left;
-    font-size: 24px;
-    padding-top: 16px;
-    margin-left: 20px;
+    line-height: $app-bar-height;
+    font-weight: 100;
+    font-size: 19px;
+    padding-left: 8px;
   }
 }
 
@@ -68,7 +74,6 @@
   float: left;
   height: 48px;
   width: 48px;
-  margin: 8px 0;
   .material-icons{
     margin: 12px;
   }
@@ -85,9 +90,9 @@
     width: calc(100% - 256px - 256px - 16px - 16px);
 
     max-height: 100%;
-    max-height: -webkit-calc(100% - 64px);
-    max-height: -moz-calc(100% - 64px);
-    max-height: calc(100% - 64px);
+    max-height: -webkit-calc(100% - $app-bar-height);
+    max-height: -moz-calc(100% - $app-bar-height);
+    max-height: calc(100% - $app-bar-height);
 
     overflow: scroll;
   }
@@ -138,14 +143,14 @@
   height: 100%;
   &.clipped-under-app-bar{
     max-height: 100%;
-    max-height: -webkit-calc(100% - 64px);
-    max-height: -moz-calc(100% - 64px);
-    max-height: calc(100% - 64px);
+    max-height: -webkit-calc(100% - $app-bar-height);
+    max-height: -moz-calc(100% - $app-bar-height);
+    max-height: calc(100% - $app-bar-height);
 
     overflow: scroll;
   }
   @media #{$large-up} {
-    width: 4 * 64px;
+    width: 256px;
   }
 }
 #side-nav{
@@ -196,7 +201,7 @@ ul.fmd-list{
     }
     span{
       float: left;
-      padding-left: 20px;
+      padding-left: 16px;
       font-size: 13px;
       line-height: 48px;
     }
