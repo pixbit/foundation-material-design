@@ -1,4 +1,9 @@
 ## Changelog
+###### v0.6.0 (2015-10-04) ######
+- Form fields Added
+- Expanding field WIP
+
+---
 
 ###### v0.5.0 (2015-10-01) ######
 - Single List items with avatars now styled for desktop

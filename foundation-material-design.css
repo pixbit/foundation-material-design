@@ -6441,3 +6441,52 @@ ul.fmd-list {
     margin-left: 8px;
     margin-right: 8px;
     padding-left: 4px; }
+
+input[type="text"].mdl-textfield__input,
+input[type="password"].mdl-textfield__input,
+input[type="date"].mdl-textfield__input,
+input[type="datetime"].mdl-textfield__input,
+input[type="datetime-local"].mdl-textfield__input,
+input[type="month"].mdl-textfield__input,
+input[type="week"].mdl-textfield__input,
+input[type="email"].mdl-textfield__input,
+input[type="number"].mdl-textfield__input,
+input[type="search"].mdl-textfield__input,
+input[type="tel"].mdl-textfield__input,
+input[type="time"].mdl-textfield__input,
+input[type="url"].mdl-textfield__input,
+input[type="color"].mdl-textfield__input {
+  border-style: none;
+  border-radius: inherit;
+  border-color: inherit;
+  border-width: inherit;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  background: white;
+  box-shadow: none;
+  font-size: 16px;
+  margin: 0;
+  padding: 4px 0;
+  color: inherit;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none; }
+
+textarea.mdl-textfield__input {
+  border-style: none;
+  border-radius: inherit;
+  border-color: inherit;
+  border-width: inherit;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  background: white;
+  box-shadow: none;
+  font-size: 16px;
+  margin: 0;
+  padding: 4px 0;
+  color: inherit;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none; }
