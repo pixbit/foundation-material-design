@@ -1,5 +1,5 @@
 var src = 'src/';
-var client = 'build/';
+var client = 'dist/';
 module.exports = {
   allJS: [
     src + '**/*.js'//,

@@ -5,3 +5,6 @@ bower_components
 .idea
 *.log
 .env
+
+build
+dist/
