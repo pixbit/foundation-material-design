@@ -15,7 +15,7 @@
 
   var config = require('./config.js');
 
-  gulp.task('default', function(done){
+  gulp.task('default', function(done) {
     runSequence(
       'default-1:clean-build-folder-and-main-files',
       'default-2:vet-javascript-files',
@@ -35,7 +35,17 @@
     );
   });
 
-  gulp.task('default-1:clean-build-folder-and-main-files', function(){
+  gulp.task('build', function(done) {
+    runSequence(
+      'default-3:copy-all-src-except-scss-to-build',
+      'default-4:sass-all-stylesheets',
+      // 'default-5:concat-all-bower-css-into-one-file',
+      'default-6:concat-all-bower-js-into-one-file',
+      done
+    );
+  })
+
+  gulp.task('default-1:clean-build-folder-and-main-files', function() {
     return del([
       config.client,
       './foundation-material-design.css',
@@ -43,12 +53,12 @@
     ]);
   });
 
-  gulp.task('default-2:vet-javascript-files', function(){
+  gulp.task('default-2:vet-javascript-files', function() {
     return gulp
       .src( config.allJS )
       .pipe( jshint() )
       .pipe( jscs() )
-      .on( 'error', function(){} )
+      .on( 'error', function() {} )
       .pipe( stylish.combineWithHintResults() )
       .pipe( jshint.reporter('jshint-stylish') );
   });
@@ -59,7 +69,7 @@
       .pipe( gulp.dest( config.client ) );
   });
 
-  gulp.task('default-4:sass-all-stylesheets', function(){
+  gulp.task('default-4:sass-all-stylesheets', function() {
     return gulp
       .src( config.srcSASS )
       .pipe(
@@ -137,7 +147,7 @@
     return injectBowerDeps('./index.html', './');
   });
 
-  function injectBowerDeps(fromHere, toHere){
+  function injectBowerDeps(fromHere, toHere) {
     gulp
       .src(fromHere)
       .pipe(
@@ -158,7 +168,7 @@
   ////////////////////////
   // Monitor HTML Tasks //
   ////////////////////////
-  gulp.task('monitor:html', function(){
+  gulp.task('monitor:html', function() {
     return gulp.watch( config.srcHTML, ['html-0:rebuild-all-html']);
   });
 
@@ -193,11 +203,11 @@
   ////////////////////////
   // Monitor SASS Tasks //
   ////////////////////////
-  gulp.task('monitor:styles', function(){
+  gulp.task('monitor:styles', function() {
     gulp.watch( 'src/**/*.scss', ['sass-0:rebuild-all-sass'] );
   });
 
-  gulp.task('sass-0:rebuild-all-sass', function(done){
+  gulp.task('sass-0:rebuild-all-sass', function(done) {
     runSequence(
       'sass-1:clean-build-and-main-css-files',
       'default-4:sass-all-stylesheets',
