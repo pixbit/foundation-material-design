@@ -15,6 +15,11 @@ function prefixClasses(fileContents) {
   let goldenRegex = /\.((?!fmd-).{1,})?((columns?|row|small|medium|large|x\-large)(.{1,}?))(\s|\.)/g; // eslint-disable-line max-len
   var matches = fileContents.match(goldenRegex);
   var newFile = fileContents.replace(goldenRegex, '.fmd-$2');
+
+  // if matches is undefined, calling matches.length will throw error
+  if (!matches || !matches.length) {
+    return console.log('There were no matches, exiting...');
+  }
   console.log(`there are ${matches.length} matches`);
   fs.writeFileSync(`${fileLocation}`, newFile);
 }
