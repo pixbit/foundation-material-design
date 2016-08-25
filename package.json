@@ -4,7 +4,8 @@
   "description": "Foundation Material Design Theme",
   "main": "Gulpfile.js",
   "scripts": {
-    "postinstall": "bower install && gulp build",
+    "lint": "sass-lint -c",
+    "postinstall": "bower install && gulp build && node tools/prefixClasses.js",
     "start": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +16,8 @@
   "devDependencies": {
     "browser-sync": "^2.9.4",
     "del": "^2.0.2",
+    "eslint": "3.3.1",
+    "eslint-config-google": "0.6.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-inject": "^2.2.0",
