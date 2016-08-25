@@ -12,7 +12,7 @@ var builtFileContents = fs.readFileSync(
 prefixClasses(builtFileContents);
 
 function prefixClasses(fileContents) {
-  let goldenRgex = /\.((columns?|row|small|medium|large|x\-large).{1,})(\s|\.)/g; // eslint-disable-line max-len
+  let goldenRgex = /\.((?!fmd-).{1,})?((columns?|row|small|medium|large|x\-large)(.{1,}?))(\s|\.)/g; // eslint-disable-line max-len
   var matches = fileContents.match(goldenRgex);
   var newFile = fileContents.replace(goldenRgex, '.fmd-$1');
   console.log(`there are ${matches.length} matches`);
