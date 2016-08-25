@@ -1,5 +1,4 @@
 'use strict';
-var process = require('process');
 var fs = require('fs');
 var fileLocation = `${__dirname}/../dist/assets/stylesheets/foundation-material-design.css`; // eslint-disable-line max-len
 var builtFileContents = fs.readFileSync(
@@ -9,7 +8,7 @@ var builtFileContents = fs.readFileSync(
   }
 );
 
-console.log(builtFileContents.substr(0, 50));
+
 prefixClasses(builtFileContents);
 
 function prefixClasses(fileContents) {
