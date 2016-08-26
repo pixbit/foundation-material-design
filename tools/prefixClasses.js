@@ -1,6 +1,7 @@
 'use strict';
 var fs = require('fs');
-var fileLocation = `${__dirname}/../dist/assets/stylesheets/foundation-material-design.css`; // eslint-disable-line max-len
+var fileLocation = `${__dirname}/../foundation-material-design.css`; // eslint-disable-line max-len
+// var fileLocation = `${__dirname}/../dist/assets/stylesheets/foundation-material-design.css`; // eslint-disable-line max-len
 var builtFileContents = fs.readFileSync(
   fileLocation,
   {

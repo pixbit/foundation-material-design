@@ -1,4 +1,9 @@
 ## Changelog
+###### v0.7.4 (2016-08-25) ######
+- Running prefixer on top level stylesheet
+
+---
+
 ###### v0.7.3 (2016-08-25) ######
 - Actually creating stylesheet at top level path
 
