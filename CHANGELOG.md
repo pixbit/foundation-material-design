@@ -1,4 +1,14 @@
 ## Changelog
+###### v0.7.2 (2016-08-25) ######
+- Removed weird negative padding for fmd-rows inside forms
+
+---
+
+###### v0.7.1 (2016-08-25) ######
+- Prefixed columns, rows, etc with 'fmd-'
+
+---
+
 ###### v0.6.0 (2015-10-04) ######
 - Form fields Added
 - Expanding field WIP
