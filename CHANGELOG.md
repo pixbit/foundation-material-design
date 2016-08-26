@@ -1,4 +1,9 @@
 ## Changelog
+###### v0.7.5 (2016-08-25) ######
+- Searched and replaced with 'fmd-'
+
+---
+
 ###### v0.7.4 (2016-08-25) ######
 - Running prefixer on top level stylesheet
 
