@@ -139,7 +139,7 @@
       .src('src/index.html')
       .pipe(gulp.dest('./'));
     return gulp
-      .src('build/assets/stylesheets/foundation-material-design.css')
+      .src('dist/assets/stylesheets/foundation-material-design.css')
       .pipe(gulp.dest('./'));
   });
 

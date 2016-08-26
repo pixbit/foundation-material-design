@@ -1,4 +1,9 @@
 ## Changelog
+###### v0.7.3 (2016-08-25) ######
+- Actually creating stylesheet at top level path
+
+---
+
 ###### v0.7.2 (2016-08-25) ######
 - Removed weird negative padding for fmd-rows inside forms
 
