@@ -13,7 +13,7 @@ var builtFileContents = fs.readFileSync(
 prefixClasses(builtFileContents);
 
 function prefixClasses(fileContents) {
-  let goldenRegex = /(\.)(columns|row|small|medium|large|x\-large)/g; // eslint-disable-line max-len
+  let goldenRegex = /(\.)(columns?|row|small|medium|large|x\-large)/g; // eslint-disable-line max-len
   var matches = fileContents.match(goldenRegex);
   var newFile = fileContents.replace(goldenRegex, '.fmd-$2');
 

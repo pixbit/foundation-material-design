@@ -1,4 +1,9 @@
 ## Changelog
+###### v0.7.6 (2016-08-25) ######
+- Searched and replaced with 'fmd-' for singular 'column'
+
+---
+
 ###### v0.7.5 (2016-08-25) ######
 - Searched and replaced with 'fmd-'
 
